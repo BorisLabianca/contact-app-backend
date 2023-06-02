@@ -15,15 +15,17 @@ const contactSchema = new mongoose.Schema(
       required: true,
     },
     image: {
-      type: String,
+      type: Object,
+      url: String,
+      public_id: String,
+      required: true,
     },
     birthDate: {
       type: Date,
+      required: true,
     },
   },
-  { timestamps: true, collection: "contacts" }
+  { timestamps: true }
 );
 
-const Contact = mongoose.model("contact", contactSchema);
-
-module.exports = Contact;
+module.exports = mongoose.model("Contact", contactSchema);
